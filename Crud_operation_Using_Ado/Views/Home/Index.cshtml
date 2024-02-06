@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Crud_operation_Using_Ado.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h3>@TempData["InsertMessage"]</h3>
+
+<h3>@TempData["UpdateMessage"]</h3>
+<h3>@TempData["DeleteMessage"]</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-hover table-striped">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empage)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Empcity)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empage)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Empcity)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Emp_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Emp_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Emp_id })
+            </td>
+        </tr>
+    }
+
+</table>
